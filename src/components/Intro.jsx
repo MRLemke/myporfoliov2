@@ -12,16 +12,18 @@ const Intro = () => {
     }, [roles.length]);
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gray-900 text-white px-4">
+        <div
+            className="flex flex-col md:flex-row items-center justify-center h-screen bg-gray-900 text-white px-4 sm:px-8">
             {/* Left Column: Name, Roles, and Links */}
-            <div className="flex flex-col justify-center items-end flex-1 text-left space-y-2">
-                <h1 className="text-5xl font-bold ">Owen Donohue</h1>
-                <div className="text-2xl text-gray-400 cycle-text">{roles[index]}
+            <div
+                className="flex flex-col justify-center items-center md:items-end flex-1 text-center md:text-left space-y-2">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">Owen Donohue</h1>
+                <div className="text-xl sm:text-2xl lg:text-3xl text-gray-400 cycle-text">
+                    {roles[index]}
                 </div>
 
                 {/* Links Section */}
                 <div className="flex space-x-4 mt-4">
-                    {/* Resume Link */}
                     <a
                         href="/Resume-01-06-25.pdf" // Replace with the path to your resume file
                         download
@@ -29,7 +31,6 @@ const Intro = () => {
                     >
                         Resume
                     </a>
-                    {/* Projects Link */}
                     <a
                         href="#projects" // Navigate to the projects section
                         className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
@@ -40,10 +41,11 @@ const Intro = () => {
             </div>
 
             {/* Right Column: Placeholder for Image */}
-            <div className="flex items-center justify-start flex-1 px-8">
-                <div className="w-48 h-48 bg-gray-700 rounded-full">
-                    {/* Replace this div with your headshot */}
+            <div className="flex items-center justify-center md:justify-start flex-1 mt-8 md:mt-0">
+                <div className="w-36 h-36 sm:w-48 sm:h-48 bg-gray-700 rounded-full md:ml-8">
                     <img
+                        ls I Use
+                        Git logoGit
                         src="/headshot.jpg"
                         alt="Owen Donohue Headshot"
                         className="w-full h-full object-cover rounded-full"

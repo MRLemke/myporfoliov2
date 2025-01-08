@@ -32,30 +32,27 @@ const AboutMe = () => {
         <div
             id="about"
             ref={ref}
-            className="h-screen flex flex-col items-center justify-center bg-gray-900 text-white"
-            style={{ marginTop: "300px" }}
+            className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white mt-16 px-4 sm:px-8"
         >
             <div
-                className={`max-w-2xl text-center transition duration-2000 ease-in-out ${
-                    isVisible ? "animate-fadeIn" : "opacity-0"
+                className={`max-w-3xl text-center transition-opacity duration-1000 ease-in-out ${
+                    isVisible ? "opacity-100" : "opacity-0"
                 }`}
             >
-                <h2 className="text-3xl font-bold mb-4">About Me</h2>
-                <p className="text-lg leading-relaxed mb-8">
+                <h2 className="text-4xl font-bold mb-6">About Me</h2>
+                <p className="text-lg leading-relaxed mb-6">
                     Hi! My name is Owen Donohue. I’m a passionate software engineer with a
                     love for creating and experimenting with innovative designs. As a recent graduate from Sonoma
                     State University, I am looking to learn and experience the computer science industry from head to
                     toe. I enjoy playing video games such as League of Legends and World of Warcraft, as well as
                     various other titles.
-
-
                 </p>
                 <p className="text-lg leading-relaxed mb-8">
                     Please feel free to send me a message!
                 </p>
 
                 {/* Contact Links */}
-                <div className="flex flex-col items-center gap-4 mt-6">
+                <div className="flex flex-wrap justify-center items-center gap-6">
                     {/* LinkedIn */}
                     <a
                         href="https://www.linkedin.com/in/owen-donohue-7a2474254/"
@@ -88,10 +85,10 @@ const AboutMe = () => {
                     </a>
 
                     {/* Phone Number */}
-                    <p className="flex items-center gap-2 text-yellow-400">
+                    <div className="flex items-center gap-2 text-yellow-400">
                         <MdEmail size={24} />
                         (707) 295-7222
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
