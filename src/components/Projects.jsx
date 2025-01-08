@@ -51,6 +51,7 @@ const Projects = () => {
         });
 
         return () => {
+            // eslint-disable-next-line
             projectRefs.current.forEach((ref) => {
                 if (ref) observer.unobserve(ref);
             });
