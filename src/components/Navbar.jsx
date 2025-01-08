@@ -37,20 +37,11 @@ const Navbar = () => {
                 <ul className="flex flex-col items-start py-4 px-6 space-y-4">
                     <li>
                         <a
-                            href="#intro"
+                            href="#projects"
                             className="hover:text-blue-400"
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            Intro
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#about"
-                            className="hover:text-blue-400"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            About Me
+                            Projects
                         </a>
                     </li>
                     <li>
@@ -64,11 +55,11 @@ const Navbar = () => {
                     </li>
                     <li>
                         <a
-                            href="#projects"
+                            href="#about"
                             className="hover:text-blue-400"
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            Projects
+                            About Me
                         </a>
                     </li>
                 </ul>

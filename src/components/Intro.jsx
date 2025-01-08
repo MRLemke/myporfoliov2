@@ -12,10 +12,10 @@ const Intro = () => {
     }, [roles.length]);
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gray-900 text-white px-8">
+        <div className="flex items-center justify-center h-screen bg-gray-900 text-white px-4">
             {/* Left Column: Name, Roles, and Links */}
-            <div className="flex flex-col justify-center items-end flex-1 text-left space-y-4">
-                <h1 className="text-5xl font-bold mb-2">Owen Donohue</h1>
+            <div className="flex flex-col justify-center items-end flex-1 text-left space-y-2">
+                <h1 className="text-5xl font-bold ">Owen Donohue</h1>
                 <div className="text-2xl text-gray-400 cycle-text">{roles[index]}
                 </div>
 
@@ -40,11 +40,11 @@ const Intro = () => {
             </div>
 
             {/* Right Column: Placeholder for Image */}
-            <div className="flex items-center justify-center flex-1">
+            <div className="flex items-center justify-start flex-1 px-8">
                 <div className="w-48 h-48 bg-gray-700 rounded-full">
                     {/* Replace this div with your headshot */}
                     <img
-                        src=""
+                        src="/headshot.jpg"
                         alt="Owen Donohue Headshot"
                         className="w-full h-full object-cover rounded-full"
                     />

@@ -59,41 +59,33 @@ const Projects = () => {
     }, []);
 
     return (
-        <div id="projects" className="bg-gray-900 text-white py-16 px-8">
+        <div id="projects" className="bg-gray-900 text-white py-16 px-4 sm:px-8">
             <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
-            <div className="space-y-12">
+            <div className="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
                 {projects.map((project, index) => (
                     <div
                         key={index}
-                        data-index={index} // Add data attribute to track index
+                        data-index={index}
                         ref={(el) => (projectRefs.current[index] = el)}
-                        className={`relative w-[25%] bg-gray-800 rounded-lg shadow-lg transform transition-all duration-1000 ease-in-out ${
+                        className={`relative bg-gray-800 rounded-lg shadow-lg transform transition-all duration-1000 ease-in-out ${
                             visibleIndexes.includes(index)
                                 ? "opacity-100 translate-x-0"
                                 : index % 2 === 0
-                                    ? "opacity-0 -translate-x-20"
-                                    : "opacity-0 translate-x-20"
-                        } ${
-                            index % 2 === 0 ? "ml-auto" : "mr-auto"
+                                    ? "opacity-0 -translate-x-10"
+                                    : "opacity-0 translate-x-10"
                         }`}
                     >
                         {/* Project Image */}
-                        <div className="overflow-hidden rounded-lg">
+                        <div className="overflow-hidden rounded-t-lg">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-auto rounded-lg"
+                                className="w-full h-auto rounded-t-lg"
                             />
                         </div>
 
                         {/* Project Description */}
-                        <div
-                            className={`absolute w-[100%] bg-gray-800 p-6 rounded-lg shadow-lg text-white ${
-                                index % 2 === 1
-                                    ? "top-1/2 left-full transform -translate-y-1/2 translate-x-4"
-                                    : "top-1/2 right-full transform -translate-y-1/2 -translate-x-4"
-                            }`}
-                        >
+                        <div className="p-6">
                             <a
                                 href={project.link}
                                 target="_blank"
