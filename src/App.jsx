@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Intro from "./components/Intro";
 import AboutMe from "./components/AboutMe";
 import "./index.css"; // Tailwind CSS styles
@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Education from "./components/Education";
 
 const App = () => {
+    const [projectsHeight, setProjectsHeight] = useState(0);
 
     useEffect(() => {
         AOS.init({
@@ -33,10 +34,10 @@ const App = () => {
               <Tools/>
           </div>
           <div className="h-screen">
-              <Projects/>
+              <Projects setProjectsHeight={setProjectsHeight}/>
           </div>
           <div className="h-screen">
-              <AboutMe/>
+              <AboutMe projectsHeight={projectsHeight}/>
           </div>
       </div>
   );

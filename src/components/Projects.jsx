@@ -1,48 +1,51 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const Projects = () => {
-    const [visibleIndexes, setVisibleIndexes] = useState([]); // Tracks which projects are visible
-    const projectRefs = useRef([]); // Stores refs for each project card
+const Projects = ({ setProjectsHeight }) => {
+    const [visibleIndexes, setVisibleIndexes] = useState([]);
+    const projectRefs = useRef([]);
+    const projectsContainerRef = useRef(null); // Ref to measure the section height
 
     const projects = [
         {
             title: "WoW Teams",
-            description: "An application designed to allow users to search World of Warcraft characters and " +
+            description:
+                "An application designed to allow users to search World of Warcraft characters and " +
                 "add them to their team, and assign roles and notes to them. This app had an AWS sql server to store " +
                 "account, character, and team data.",
-            link: "https://github.com/conboyr/WowTeamz", // Link for the project
-            image: "wowteamsscreenshot.png", // Replace with your actual image URL
+            link: "https://github.com/conboyr/WowTeamz",
+            image: "wowteamsscreenshot.png",
         },
         {
             title: "Eclipse Detection",
-            description: "Using the bag of visual words algorithm, and later on, a convolutional neural network, my " +
+            description:
+                "Using the bag of visual words algorithm, and later on, a convolutional neural network, my " +
                 "team and I worked to identify and classify 80 gigabytes of images of a recent solar eclipse.",
-            link: "https://github.com/matthew0316/Solar-Eclipse", // Link for the project
-            image: "cnn.png", // Replace with your actual image URL
+            link: "https://github.com/matthew0316/Solar-Eclipse",
+            image: "cnn.png",
         },
         {
             title: "C-style Interpreter",
-            description: "My team and I designed an interpreter for a c-style language, allowing execution of basic " +
+            description:
+                "My team and I designed an interpreter for a c-style language, allowing execution of basic " +
                 "c-style code.",
-            link: "https://replit.com/@antennabutt/cs460project#abstractsyntaxtree.cpp", // Link for the project
-            image: "interpret.png", // Replace with your actual image URL
+            link: "https://replit.com/@antennabutt/cs460project#abstractsyntaxtree.cpp",
+            image: "interpret.png",
         },
-
     ];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    const index = Number(entry.target.dataset.index); // Retrieve the index of the observed element
+                    const index = Number(entry.target.dataset.index);
                     if (entry.isIntersecting) {
                         setVisibleIndexes((prev) => [...new Set([...prev, index])]);
                     }
                 });
             },
             {
-                root: null, // Default: viewport
-                threshold: 0.2, // Trigger when 20% of the element is visible
+                root: null,
+                threshold: 0.2,
             }
         );
 
@@ -51,15 +54,24 @@ const Projects = () => {
         });
 
         return () => {
-            // eslint-disable-next-line
             projectRefs.current.forEach((ref) => {
                 if (ref) observer.unobserve(ref);
             });
         };
     }, []);
 
+    useEffect(() => {
+        if (projectsContainerRef.current) {
+            setProjectsHeight(projectsContainerRef.current.offsetHeight);
+        }
+    }, [projects]); // Measure height whenever projects change
+
     return (
-        <div id="projects" className="bg-gray-900 text-white py-16 px-4 sm:px-8">
+        <div
+            id="projects"
+            ref={projectsContainerRef}
+            className="bg-gray-900 text-white py-16 px-4 sm:px-8"
+        >
             <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
             <div className="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
                 {projects.map((project, index) => (
@@ -75,7 +87,6 @@ const Projects = () => {
                                     : "opacity-0 translate-x-10"
                         }`}
                     >
-                        {/* Project Image */}
                         <div className="overflow-hidden rounded-t-lg">
                             <img
                                 src={project.image}
@@ -83,8 +94,6 @@ const Projects = () => {
                                 className="w-full h-auto rounded-t-lg"
                             />
                         </div>
-
-                        {/* Project Description */}
                         <div className="p-6">
                             <a
                                 href={project.link}
@@ -99,8 +108,6 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
-            {/* Add extra padding to the bottom */}
-            <div className="pt-16 lg:pt-24"></div>
         </div>
     );
 };
