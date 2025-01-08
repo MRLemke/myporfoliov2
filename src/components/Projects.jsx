@@ -99,6 +99,8 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
+            {/* Add extra padding to the bottom */}
+            <div className="pt-16"></div>
         </div>
     );
 };
