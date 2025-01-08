@@ -100,7 +100,7 @@ const Projects = () => {
                 ))}
             </div>
             {/* Add extra padding to the bottom */}
-            <div className="pt-16"></div>
+            <div className="pt-16 lg:pt-24"></div>
         </div>
     );
 };

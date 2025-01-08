@@ -32,7 +32,7 @@ const AboutMe = () => {
         <div
             id="about"
             ref={ref}
-            className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white mt-16 px-4 sm:px-8"
+            className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white mt-16 sm:mt-24 px-4 sm:px-8"
         >
             <div
                 className={`max-w-3xl text-center transition-opacity duration-1000 ease-in-out ${
@@ -60,7 +60,7 @@ const AboutMe = () => {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-colors"
                     >
-                        <FaLinkedin size={24} />
+                        <FaLinkedin size={24}/>
                         LinkedIn
                     </a>
 
@@ -71,7 +71,7 @@ const AboutMe = () => {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-gray-400 hover:text-gray-300 transition-colors"
                     >
-                        <FaGithub size={24} />
+                        <FaGithub size={24}/>
                         GitHub
                     </a>
 
@@ -80,13 +80,13 @@ const AboutMe = () => {
                         href="mailto:owenpdonohue@gmail.com"
                         className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
                     >
-                        <MdEmail size={24} />
+                        <MdEmail size={24}/>
                         owenpdonohue@gmail.com
                     </a>
 
                     {/* Phone Number */}
                     <div className="flex items-center gap-2 text-yellow-400">
-                        <MdEmail size={24} />
+                        <MdEmail size={24}/>
                         (707) 295-7222
                     </div>
                 </div>
