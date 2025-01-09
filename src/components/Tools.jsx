@@ -42,7 +42,7 @@ const Tools = () => {
         <div
             id="tools"
             ref={ref}
-            className="h-screen flex flex-col items-center justify-center bg-gray-900 text-white"
+            className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white"
         >
             <h2
                 className={`text-3xl font-bold mb-8 transition duration-1000 ease-in-out ${

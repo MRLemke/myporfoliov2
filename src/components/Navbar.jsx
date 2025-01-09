@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -15,15 +16,13 @@ const Navbar = () => {
 
                 {/* Hamburger Menu */}
                 <div
-                    className={`fixed top-5 right-6 z-50 cursor-pointer transform transition-transform duration-300 ${
-                        isMenuOpen ? "-translate-x-64" : "translate-x-0"
-                    }`}
+                    className={`fixed top-5 right-6 z-50 cursor-pointer transform transition-transform duration-300`}
                     onClick={handleMenuToggle}
                 >
                     {isMenuOpen ? (
-                        <FaTimes className="text-2xl text-white hover:text-blue-400 transition"/>
+                        <FaTimes className="text-2xl text-white hover:text-blue-400 transition" />
                     ) : (
-                        <FaBars className="text-2xl text-white hover:text-blue-400 transition"/>
+                        <FaBars className="text-2xl text-white hover:text-blue-400 transition" />
                     )}
                 </div>
             </div>
@@ -42,15 +41,6 @@ const Navbar = () => {
                             onClick={() => setIsMenuOpen(false)}
                         >
                             Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#tools"
-                            className="hover:text-blue-400"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Tools
                         </a>
                     </li>
                     <li>

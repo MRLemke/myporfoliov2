@@ -7,15 +7,15 @@ const Education = () => {
         "Database Management Systems",
         "Computer Vision",
         "Software Design",
-        "Computer Architecture"
+        "Computer Architecture",
     ];
 
     return (
-        <div id="education" className="bg-gray-900 text-white py-8 px-8">
-            <h2 className="text-4xl font-bold text-center mb-6">Education</h2>
+        <div id="education" className="bg-gray-900 text-white py-4 px-8">
+            <h2 className="text-4xl font-bold text-center mb-4">Education</h2>
 
             {/* Main Education Card */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-4">
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[80%] md:w-[50%] text-center">
                     <h3 className="text-2xl font-bold text-blue-400">
                         Sonoma State University - Graduated 2024
@@ -25,7 +25,7 @@ const Education = () => {
             </div>
 
             {/* Courses Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-0">
                 {courses.map((course, index) => (
                     <div
                         key={index}

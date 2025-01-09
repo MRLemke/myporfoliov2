@@ -20,24 +20,33 @@ const App = () => {
         });
     }, []);
   return (
-      <div className="h-screen overflow-y-scroll scroll-smooth bg-gray-900">
+      <div className="bg-gray-900 text-white">
+          {/* Navbar */}
+          <Navbar />
+
           {/* Intro Section */}
-          <Navbar/>
-          <div className="h-screen">
-              <Intro/>
+          <div className="min-h-screen relative">
+              <Intro />
           </div>
+
+          {/* Education Section */}
+          <div className="bg-gray-900 text-white py-4 px-8">
+              <Education />
+          </div>
+
+          {/* Tools Section */}
+          <div className="min-h-screen">
+              <Tools />
+          </div>
+
+          {/* Projects Section */}
+          <div className="min-h-screen">
+              <Projects setProjectsHeight={setProjectsHeight} />
+          </div>
+
           {/* About Me Section */}
-          <div className="h-screen">
-              <Education/>
-          </div>
-          <div className="h-screen">
-              <Tools/>
-          </div>
-          <div className="h-screen">
-              <Projects setProjectsHeight={setProjectsHeight}/>
-          </div>
-          <div className="h-screen">
-              <AboutMe projectsHeight={projectsHeight}/>
+          <div className="bg-gray-900 text-white py-4 px-8">
+              <AboutMe projectsHeight={projectsHeight} />
           </div>
       </div>
   );
