@@ -8,7 +8,7 @@ const Intro = () => {
         "Frontend Developer",
         "Jazz Enthusiast",
         "Trumpeter",
-        "World of Warcraft Raider",
+
     ];
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const Intro = () => {
                 {/* Links Section */}
                 <div className="flex space-x-4 mt-4">
                     <a
-                        href="/Resume-01-06-25.pdf"
+                        href="/resume-updated-1-9-2025.pdf"
                         download
                         className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
                     >
