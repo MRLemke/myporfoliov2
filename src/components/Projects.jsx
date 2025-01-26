@@ -1,40 +1,34 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 
-const Projects = ({ setProjectsHeight }) => {
+const Projects = () => {
     const [visibleIndexes, setVisibleIndexes] = useState([]);
     const projectRefs = useRef([]);
-    const projectsContainerRef = useRef(null); // Ref to measure the section height
 
-    // Memoized projects array
     const projects = useMemo(
         () => [
             {
                 title: "WoW Teams",
                 description:
-                    "An application designed to allow users to search World of Warcraft characters and " +
-                    "add them to their team, and assign roles and notes to them. This app had an AWS sql server to store " +
-                    "account, character, and team data.",
+                    "An application designed to allow users to search World of Warcraft characters and add them to their team, and assign roles and notes to them. This app had an AWS SQL server to store account, character, and team data.",
                 link: "https://github.com/conboyr/WowTeamz",
                 image: "wowteamsscreenshot.png",
             },
             {
                 title: "Eclipse Detection",
                 description:
-                    "Using the bag of visual words algorithm, and later on, a convolutional neural network, my " +
-                    "team and I worked to identify and classify 80 gigabytes of images of a recent solar eclipse.",
+                    "Using the bag of visual words algorithm, and later on, a convolutional neural network, my team and I worked to identify and classify 80 gigabytes of images of a recent solar eclipse.",
                 link: "https://github.com/matthew0316/Solar-Eclipse",
                 image: "cnn.png",
             },
             {
                 title: "C-style Interpreter",
                 description:
-                    "My team and I designed an interpreter for a c-style language, allowing execution of basic " +
-                    "c-style code.",
+                    "My team and I designed an interpreter for a C-style language, allowing execution of basic C-style code.",
                 link: "https://replit.com/@antennabutt/cs460project#abstractsyntaxtree.cpp",
                 image: "interpret.png",
             },
         ],
-        [] // Empty dependency array ensures this array is stable
+        []
     );
 
     useEffect(() => {
@@ -47,10 +41,7 @@ const Projects = ({ setProjectsHeight }) => {
                     }
                 });
             },
-            {
-                root: null,
-                threshold: 0.2,
-            }
+            { threshold: 0.2 }
         );
 
         projectRefs.current.forEach((ref) => {
@@ -65,46 +56,37 @@ const Projects = ({ setProjectsHeight }) => {
         };
     }, []);
 
-    useEffect(() => {
-        if (projectsContainerRef.current) {
-            setProjectsHeight(projectsContainerRef.current.offsetHeight);
-        }
-    }, [projects, setProjectsHeight]); // Include projects in the dependency array
-
     return (
         <div
             id="projects"
-            ref={projectsContainerRef}
-            className="bg-gray-900 text-white py-16 px-4 sm:px-8"
+            className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center py-16 px-4"
         >
-            <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
-            <div className="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
+            <h2 className="text-3xl font-bold mb-12">Projects</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 {projects.map((project, index) => (
                     <div
                         key={index}
                         data-index={index}
                         ref={(el) => (projectRefs.current[index] = el)}
-                        className={`relative bg-gray-800 rounded-lg shadow-lg transform transition-all duration-1000 ease-in-out ${
+                        className={`bg-gray-800 rounded-lg shadow-lg p-4 transform transition-all duration-1000 ease-in-out ${
                             visibleIndexes.includes(index)
-                                ? "opacity-100 translate-x-0"
-                                : index % 2 === 0
-                                    ? "opacity-0 -translate-x-10"
-                                    : "opacity-0 translate-x-10"
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-10"
                         }`}
                     >
-                        <div className="overflow-hidden rounded-t-lg">
+                        <div className="rounded-t-lg overflow-hidden">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-auto rounded-t-lg"
+                                className="w-full h-40 object-cover"
                             />
                         </div>
-                        <div className="p-6">
+                        <div className="mt-4 text-center">
                             <a
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-2xl font-bold text-blue-400 hover:text-blue-500 transition-colors"
+                                className="text-xl font-bold text-blue-400 hover:text-blue-500 transition-colors"
                             >
                                 {project.title}
                             </a>

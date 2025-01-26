@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,9 @@ const Navbar = () => {
 
                 {/* Hamburger Menu */}
                 <div
-                    className={`fixed top-5 right-6 z-50 cursor-pointer transform transition-transform duration-300`}
+                    className={`fixed top-5 transform transition-all duration-300 ${
+                        isMenuOpen ? "right-64" : "right-5"
+                    } z-50 cursor-pointer`}
                     onClick={handleMenuToggle}
                 >
                     {isMenuOpen ? (

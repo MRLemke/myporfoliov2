@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import Education from "./components/Education";
 
 const App = () => {
+    // eslint-disable-next-line
     const [projectsHeight, setProjectsHeight] = useState(0);
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const App = () => {
 
           {/* About Me Section */}
           <div className="bg-gray-900 text-white py-4 px-8">
-              <AboutMe projectsHeight={projectsHeight} />
+              <AboutMe />
           </div>
       </div>
   );

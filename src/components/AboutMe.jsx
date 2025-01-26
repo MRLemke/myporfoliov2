@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-const AboutMe = ({ projectsHeight }) => {
+const AboutMe = () => {
     const ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -32,7 +32,7 @@ const AboutMe = ({ projectsHeight }) => {
         <div
             id="about"
             ref={ref}
-            style={{ marginTop: projectsHeight + 32 }}
+            style={{ }}
             className="bg-gray-900 text-white px-4 sm:px-8 py-16"
         >
             <div

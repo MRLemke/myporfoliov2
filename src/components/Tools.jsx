@@ -59,7 +59,7 @@ const Tools = () => {
                 {tools.map((tool, index) => (
                     <div
                         key={index}
-                        className="p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition"
+                        className="p-4 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 transition"
                     >
                         <img
                             src={tool.logo}
