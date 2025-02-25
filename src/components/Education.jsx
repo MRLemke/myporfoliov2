@@ -1,31 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const Education = () => {
-    const ref = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 } // Trigger when 10% of the section is visible
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => {
-            if (ref.current) {
-                // eslint-disable-next-line
-                observer.unobserve(ref.current);
-            }
-        };
-    }, []);
-
     const courses = [
         "Data Structures and Algorithms",
         "Operating Systems",
@@ -38,21 +13,12 @@ const Education = () => {
     return (
         <div
             id="education"
-            ref={ref}
             className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white"
         >
-            <h2
-                className={`text-3xl font-bold mb-8 transition duration-1000 ease-in-out ${
-                    isVisible ? "animate-fadeIn" : "opacity-0"
-                }`}
-            >
+            <h2 className="text-3xl font-bold mb-8">
                 Education
             </h2>
-            <div
-                className={`flex flex-col items-center text-center transition duration-1000 ease-in-out ${
-                    isVisible ? "animate-fadeIn" : "opacity-0"
-                }`}
-            >
+            <div className="flex flex-col items-center text-center">
                 {/* Main Education Card */}
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg w-[80%] md:w-[50%] mb-8">
                     <h3 className="text-2xl font-bold text-blue-400">

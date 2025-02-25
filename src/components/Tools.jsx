@@ -1,31 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const Tools = () => {
-    const ref = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 } // Trigger when 10% of the section is visible
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => {
-            if (ref.current) {
-                // eslint-disable-next-line
-                observer.unobserve(ref.current);
-            }
-        };
-    }, []);
-
     const tools = [
         { name: "Git", logo: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" },
         { name: "C++", logo: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" },
@@ -41,21 +16,10 @@ const Tools = () => {
     return (
         <div
             id="tools"
-            ref={ref}
             className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white"
         >
-            <h2
-                className={`text-3xl font-bold mb-8 transition duration-1000 ease-in-out ${
-                    isVisible ? "animate-fadeIn" : "opacity-0"
-                }`}
-            >
-                Tools I Use
-            </h2>
-            <div
-                className={`grid grid-cols-3 gap-10 text-center transition duration-1000 ease-in-out ${
-                    isVisible ? "animate-fadeIn" : "opacity-0"
-                }`}
-            >
+            <h2 className="text-3xl font-bold mb-8">Tools I Use</h2>
+            <div className="grid grid-cols-3 gap-10 text-center">
                 {tools.map((tool, index) => (
                     <div
                         key={index}
@@ -75,4 +39,3 @@ const Tools = () => {
 };
 
 export default Tools;
-

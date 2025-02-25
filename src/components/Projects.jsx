@@ -1,9 +1,6 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useMemo } from "react";
 
 const Projects = () => {
-    const [visibleIndexes, setVisibleIndexes] = useState([]);
-    const projectRefs = useRef([]);
-
     const projects = useMemo(
         () => [
             {
@@ -31,56 +28,17 @@ const Projects = () => {
         []
     );
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    const index = Number(entry.target.dataset.index);
-                    if (entry.isIntersecting) {
-                        setVisibleIndexes((prev) => [...new Set([...prev, index])]);
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
-
-        projectRefs.current.forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => {
-            // eslint-disable-next-line
-            projectRefs.current.forEach((ref) => {
-                if (ref) observer.unobserve(ref);
-            });
-        };
-    }, []);
-
     return (
-        <div
-            id="projects"
-            className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center py-16 px-4"
-        >
-            <h2 className="text-3xl font-bold mb-12">Projects</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div id="projects" className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-12 px-4">
+            <h2 className="text-2xl font-bold mb-8">Projects</h2>
+            <div className="flex flex-col gap-8 max-w-3xl w-full">
                 {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        data-index={index}
-                        ref={(el) => (projectRefs.current[index] = el)}
-                        className={`bg-gray-800 rounded-lg shadow-lg p-4 transform transition-all duration-1000 ease-in-out ${
-                            visibleIndexes.includes(index)
-                                ? "opacity-100 translate-y-0"
-                                : "opacity-0 translate-y-10"
-                        }`}
-                    >
-                        <div className="rounded-t-lg overflow-hidden">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-40 object-cover"
-                            />
-                        </div>
+                    <div key={index} className="flex flex-col items-center w-full">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full max-w-lg h-64 object-cover rounded-lg"
+                        />
                         <div className="mt-4 text-center">
                             <a
                                 href={project.link}
@@ -90,7 +48,7 @@ const Projects = () => {
                             >
                                 {project.title}
                             </a>
-                            <p className="text-sm mt-2">{project.description}</p>
+                            <p className="text-md mt-2">{project.description}</p>
                         </div>
                     </div>
                 ))}
